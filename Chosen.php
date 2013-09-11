@@ -5,7 +5,7 @@
  * Chosen script:
  * @link http://harvesthq.github.com/chosen/
  *
- * @author Bogdan Savluk <savluk.bogdan@gmail.com>
+ * @author Griga Yura
  */
 class Chosen extends CInputWidget
 {
