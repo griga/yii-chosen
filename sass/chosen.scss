@@ -6,63 +6,8 @@
 $chosen-sprite: image-url('chosen-sprite.png');
 $chosen-sprite-retina: image-url('chosen-sprite@2x.png');
 
-.bootstrap-chosen {
-	.chosen-container {
-		.chosen-drop{
-			border-color: #cccccc;
-			box-shadow: 0 4px 5px rgba(#000, .05);
-		}
-	}
-	.chosen-container-single {
-		.chosen-single {
-			@include border-radius(3px);
-			height: 28px;
-			line-height: 29px;
-			background: none;
-			color: #808080;
-			border: 1px solid #cccccc;
-			padding: 0 0 0 4px;
-			div {
-				b {
-					background: $chosen-sprite no-repeat 0px 5px;
-				}
-			}
-		}
-		.chosen-search {
-			input[type="text"] {
-				border: 1px solid #aaa;
-				background: #fff $chosen-sprite no-repeat 100% -20px;
-			}
-		}
-	}
-	.chosen-container-active {
-		.chosen-single {
-			border: 1px solid #cccccc;
-			box-shadow: none;
-		}
-		&.chosen-with-drop {
-			.chosen-single {
-				border-color: #cccccc;
-				background: none;
-				box-shadow: none;
-			}
-			.chosen-single div {
-				border-left: none;
-				background: transparent;
-				b {
-					background-position: -18px 5px;
-				}
-			}
-		}
-		.chosen-choices {
-			border: 1px solid #5897fb;
-			box-shadow: 0 0 5px rgba(#000, .3);
-			li.search-field input[type="text"] {
-				color: #111 !important;
-			}
-		}
-	}
-}
+@import "bootstrsp-styles";
+
 
 /* @group Base */
 .chosen-container {

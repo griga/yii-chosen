@@ -40,7 +40,7 @@ class Chosen extends CInputWidget
     /** @var bool hidden input with empty selection before widget, so if no option selected(with this option) - empty field would be send */
     public $sendEmpty = true;
 
-    public $debug = false;
+    public $debug = true;
 
     /** Publish assets and set default values for properties */
     public function init()

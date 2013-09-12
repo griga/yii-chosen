@@ -1,8 +1,16 @@
+.bootstrap-chosen > select.error + .chosen-container .chosen-drop {
+  border-color: #b94a48;
+  color: #b94a48;
+}
+.bootstrap-chosen > select.error + .chosen-container .chosen-single {
+  border-color: #b94a48;
+  color: #b94a48;
+}
 .bootstrap-chosen .chosen-container .chosen-drop {
   border-color: #cccccc;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
 }
-.bootstrap-chosen .chosen-container-single .chosen-single {
+.bootstrap-chosen .chosen-container .chosen-single {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -15,10 +23,13 @@
   border: 1px solid #cccccc;
   padding: 0 0 0 4px;
 }
-.bootstrap-chosen .chosen-container-single .chosen-single div b {
-  background: url('chosen-sprite.png') no-repeat 0px 5px;
+.bootstrap-chosen .chosen-container .chosen-single div b {
+  background: url('chosen-sprite.png') no-repeat 0px 6px;
 }
-.bootstrap-chosen .chosen-container-single .chosen-search input[type="text"] {
+.bootstrap-chosen .chosen-container .chosen-single.chosen-single-with-deselect .search-choice-close {
+  top: 9px;
+}
+.bootstrap-chosen .chosen-container .chosen-search input[type="text"] {
   border: 1px solid #aaaaaa;
   background: white url('chosen-sprite.png') no-repeat 100% -20px;
 }
@@ -36,7 +47,7 @@
   background: transparent;
 }
 .bootstrap-chosen .chosen-container-active.chosen-with-drop .chosen-single div b {
-  background-position: -18px 5px;
+  background-position: -18px 6px;
 }
 .bootstrap-chosen .chosen-container-active .chosen-choices {
   border: 1px solid #5897fb;
