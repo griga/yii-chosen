@@ -26,7 +26,7 @@ class Chosen extends CInputWidget
      * Chosen will add a UI element for option deselection.
      * This will only work if the first option has blank text.
      */
-    public $allowSingleDeselect = true;
+    public $allowSingleDeselect = false;
 
     /** @var string|null If is set will override default label "No results match" */
     public $noResults;
@@ -36,15 +36,27 @@ class Chosen extends CInputWidget
 
     /** @var array See CHtml::listData() */
     public $data;
+
     /** @var bool hidden input with empty selection before widget, so if no option selected(with this option) - empty field would be send */
     public $sendEmpty = true;
+
+    public $debug = false;
 
     /** Publish assets and set default values for properties */
     public function init()
     {
         $dir = dirname(__FILE__) . '/assets';
-        $this->assetsDir = Yii::app()->assetManager->publish($dir);
 
+        if ($this->debug) {
+            $this->assetsDir = app()->assetManager->publish($dir, false, -1, true);
+        } else {
+            $this->assetsDir = app()->assetManager->publish($dir);
+        }
+
+        if (isset($this->htmlOptions['allowSingleDeselect'])){
+            $this->allowSingleDeselect = $this->htmlOptions['allowSingleDeselect'];
+            unset($this->htmlOptions['allowSingleDeselect']);
+        }
         if ($this->multiple) {
             if (isset($this->htmlOptions['multiple']))
                 $this->multiple = true;
@@ -100,7 +112,7 @@ class Chosen extends CInputWidget
     /** Register client scripts */
     private function registerScripts($id)
     {
-        $cs = Yii::app()->getClientScript();
+        $cs = app()->getClientScript();
         $cs->registerCoreScript('jquery');
         if (defined('YII_DEBUG'))
             $cs->registerScriptFile($this->assetsDir . '/chosen.jquery.js');
