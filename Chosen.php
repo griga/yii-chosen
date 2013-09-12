@@ -28,6 +28,11 @@ class Chosen extends CInputWidget
      */
     public $allowSingleDeselect = false;
 
+    /**
+     * @var bool When set to true, Chosen will not display the search field (single selects only).
+     */
+    public $disableSearch = false;
+
     /** @var string|null If is set will override default label "No results match" */
     public $noResults;
 
@@ -57,6 +62,12 @@ class Chosen extends CInputWidget
             $this->allowSingleDeselect = $this->htmlOptions['allowSingleDeselect'];
             unset($this->htmlOptions['allowSingleDeselect']);
         }
+
+        if (isset($this->htmlOptions['disableSearch'])){
+            $this->disableSearch = $this->htmlOptions['disableSearch'];
+            unset($this->htmlOptions['disableSearch']);
+        }
+
         if ($this->multiple) {
             if (isset($this->htmlOptions['multiple']))
                 $this->multiple = true;
