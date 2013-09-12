@@ -91,8 +91,10 @@ class Chosen extends CInputWidget
             $this->settings['no_results_text'] = $this->noResults;
         else
             $this->settings['no_results_text'] = Yii::t('Chosen.main', "No results match");
-        if (!$this->multiple)
+        if (!$this->multiple){
             $this->settings['allow_single_deselect'] = $this->allowSingleDeselect;
+            $this->settings['disable_search'] = $this->disableSearch;
+        }
     }
 
     /** Render widget html and register client scripts */
