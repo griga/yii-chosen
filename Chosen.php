@@ -33,6 +33,11 @@ class Chosen extends CInputWidget
      */
     public $disableSearch = false;
 
+    /**
+     * @var bool When set to true, Chosen will grab any classes on the original select field and add them to Chosen's container div.
+     */
+    public $inheritSelectClasses = false;
+
     /** @var string|null If is set will override default label "No results match" */
     public $noResults;
 
@@ -61,6 +66,11 @@ class Chosen extends CInputWidget
         if (isset($this->htmlOptions['allowSingleDeselect'])){
             $this->allowSingleDeselect = $this->htmlOptions['allowSingleDeselect'];
             unset($this->htmlOptions['allowSingleDeselect']);
+        }
+
+        if (isset($this->htmlOptions['inheritSelectClasses'])){
+            $this->inheritSelectClasses = $this->htmlOptions['inheritSelectClasses'];
+            unset($this->htmlOptions['inheritSelectClasses']);
         }
 
         if (isset($this->htmlOptions['disableSearch'])){
@@ -94,7 +104,9 @@ class Chosen extends CInputWidget
         if (!$this->multiple){
             $this->settings['allow_single_deselect'] = $this->allowSingleDeselect;
             $this->settings['disable_search'] = $this->disableSearch;
+            $this->settings['inherit_select_classes'] = $this->disableSearch;
         }
+        $this->settings['width'] = "100%";
     }
 
     /** Render widget html and register client scripts */

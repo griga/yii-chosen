@@ -18,7 +18,7 @@
   border-radius: 3px;
   height: 28px;
   line-height: 29px;
-  background: none;
+  background: white;
   color: #808080;
   border: 1px solid #cccccc;
   padding: 0 0 0 4px;
@@ -39,12 +39,12 @@
 }
 .bootstrap-chosen .chosen-container-active.chosen-with-drop .chosen-single {
   border-color: #cccccc;
-  background: none;
+  background: white;
   box-shadow: none;
 }
 .bootstrap-chosen .chosen-container-active.chosen-with-drop .chosen-single div {
   border-left: none;
-  background: transparent;
+  background: white;
 }
 .bootstrap-chosen .chosen-container-active.chosen-with-drop .chosen-single div b {
   background-position: -18px 6px;

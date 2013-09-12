@@ -46,7 +46,6 @@ class TbChosen extends Chosen
      */
     private static function bootstrapChosenFactory($type, $model, $attribute, $data, $htmlOptions = array())
     {
-        $htmlOptions['bootstrapStyle'] = true;
         $hasError = $model->hasErrors($attribute);
         if ($hasError) {
             self::addErrorCss($htmlOptions);
@@ -54,14 +53,19 @@ class TbChosen extends Chosen
         $out = CHtml::openTag('div', array('class' => 'control-group'));
         $out .= CHtml::activeLabelEx($model, $attribute, array('class' => 'control-label'));
         $out .= CHtml::openTag('div', array('class' => 'controls bootstrap-chosen'));
-
+        if (($check = isset($htmlOptions['class'])) === true) {
+            $out .= CHtml::openTag('div', array('class' => $htmlOptions['class']));
+            unset($htmlOptions['class']);
+        }
         if ($type === 'single') {
             $out .= parent::activeDropDownList($model, $attribute, $data, $htmlOptions);
         } else {
             $out .= parent::activeMultiSelect($model, $attribute, $data, $htmlOptions);
         }
-
-        $out .= $hasError ? CHtml::tag('span', array('class'=>'help-inline '.CHtml::$errorCss), $model->getError($attribute)) : '';
+        if ($check) {
+            $out .= CHtml::closeTag('div');
+        }
+        $out .= $hasError ? CHtml::tag('span', array('class' => 'help-inline ' . CHtml::$errorCss), $model->getError($attribute)) : '';
         $out .= CHtml::closeTag('div');
         $out .= CHtml::closeTag('div');
         return $out;
