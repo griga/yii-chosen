@@ -137,17 +137,24 @@ class Chosen extends CInputWidget
     /** Register client scripts */
     private function registerScripts($id)
     {
-        $cs = app()->getClientScript();
-        $cs->registerCoreScript('jquery');
+        cs()->registerCoreScript('jquery');
         if (defined('YII_DEBUG'))
-            $cs->registerScriptFile($this->assetsDir . '/chosen.jquery.js');
+            cs()->registerScriptFile($this->assetsDir . '/chosen.jquery.js');
         else
-            $cs->registerScriptFile($this->assetsDir . '/chosen.jquery.min.js');
-
-        $cs->registerCssFile($this->assetsDir . '/chosen.css');
+            cs()->registerScriptFile($this->assetsDir . '/chosen.jquery.min.js');
+        cs()->registerScriptFile($this->assetsDir . '/ajax-chosen.js');
+        cs()->registerCssFile($this->assetsDir . '/chosen.css');
 
         $settings = CJavaScript::encode($this->settings);
-        $cs->registerScript("{$id}_chosen", "$('#{$id}').chosen({$settings});");
+        cs()->registerScript("{$id}_chosen", "$('#{$id}').chosen({$settings});");
+    }
+
+
+    public static function registerPluginAssets(){
+        $assetsDir = app()->assetManager->publish( __DIR__ . '/assets');
+        cs()->registerScriptFile($assetsDir . '/chosen.jquery.min.js');
+        cs()->registerScriptFile($assetsDir . '/ajax-chosen.js');
+        cs()->registerCssFile($assetsDir . '/chosen.css');
     }
 
     /** Single item select */
@@ -160,6 +167,8 @@ class Chosen extends CInputWidget
             'htmlOptions' => $htmlOptions,
         ), true);
     }
+
+
 
     public static function activeDropDownList($model, $attribute, $data, $htmlOptions = array())
     {

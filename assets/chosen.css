@@ -1,14 +1,30 @@
-.bootstrap-chosen > select.error + .chosen-container .chosen-drop {
+.bootstrap-chosen .chosen-container-active {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.bootstrap-chosen .chosen-container-active .chosen-drop {
+  border: 1px solid #cccccc;
+  border-top: none;
+  -webkit-box-shadow: 0 2px 4px rgba(82, 168, 236, 0.4);
+  -moz-box-shadow: 0 2px 4px rgba(82, 168, 236, 0.4);
+  box-shadow: 0 2px 4px rgba(82, 168, 236, 0.4);
+}
+.bootstrap-chosen select.success + .chosen-container .chosen-drop {
   border-color: #b94a48;
   color: #b94a48;
 }
-.bootstrap-chosen > select.error + .chosen-container .chosen-single {
+.bootstrap-chosen select.success + .chosen-container .chosen-single {
   border-color: #b94a48;
   color: #b94a48;
 }
-.bootstrap-chosen .chosen-container .chosen-drop {
-  border-color: #cccccc;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
+.bootstrap-chosen select.error + .chosen-container .chosen-drop {
+  border-color: #b94a48;
+  color: #b94a48;
+}
+.bootstrap-chosen select.error + .chosen-container .chosen-single {
+  border-color: #b94a48;
+  color: #b94a48;
 }
 .bootstrap-chosen .chosen-container .chosen-single {
   -webkit-border-radius: 3px;

@@ -46,10 +46,6 @@ class TbChosen extends Chosen
      */
     private static function bootstrapChosenFactory($type, $model, $attribute, $data, $htmlOptions = array())
     {
-        $hasError = $model->hasErrors($attribute);
-        if ($hasError) {
-            self::addErrorCss($htmlOptions);
-        };
         $out = CHtml::openTag('div', array('class' => 'control-group'));
         $out .= CHtml::activeLabelEx($model, $attribute, array('class' => 'control-label'));
         $out .= CHtml::openTag('div', array('class' => 'controls bootstrap-chosen'));
@@ -57,6 +53,10 @@ class TbChosen extends Chosen
             $out .= CHtml::openTag('div', array('class' => $htmlOptions['class']));
             unset($htmlOptions['class']);
         }
+        $hasError = $model->hasErrors($attribute);
+        if ($hasError) {
+            self::addErrorCss($htmlOptions);
+        };
         if ($type === 'single') {
             $out .= parent::activeDropDownList($model, $attribute, $data, $htmlOptions);
         } else {
